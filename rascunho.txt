@@ -1,0 +1,160 @@
+# Análise do Aumento no Preço das Memórias RAM (2025–2026)
+
+## Objetivo
+
+Investigar possíveis causas para o aumento expressivo no preço das memórias RAM entre novembro de 2025 e maio de 2026.
+
+---
+
+# Resultado Observado
+
+Durante o período analisado:
+
+- o preço médio das memórias RAM praticamente dobrou;
+- o dólar caiu aproximadamente **6,6%**;
+- a inflação acumulada (IGP-M) foi de apenas **3,19%**.
+
+Isso sugere que a alta observada não pode ser explicada apenas por inflação ou câmbio.
+
+---
+
+# Gráfico
+
+> Inserir aqui o gráfico gerado pelo notebook.
+
+---
+
+# Hipótese Principal
+
+A principal hipótese é que o aumento foi causado por uma combinação de:
+
+- aumento massivo da demanda por memória voltada para IA;
+- priorização de HBM (High Bandwidth Memory);
+- redução relativa da oferta de memória consumer;
+- mercado altamente concentrado entre poucas fabricantes.
+
+---
+
+# Evidências
+
+## 1. Micron saiu parcialmente do mercado consumer
+
+Em 3 de dezembro de 2025, a Micron anunciou a saída da marca Crucial do mercado consumer.
+
+Fonte:
+- https://investors.micron.com/news-releases/news-release-details/micron-announces-exit-crucial-consumer-business
+
+Isso potencialmente reduz a oferta de memória para consumidores finais.
+
+---
+
+## 2. IA consumindo o mercado de memória
+
+Em 22 de dezembro de 2025, surgiram notícias afirmando que a OpenAI havia reservado até 40% do mercado de memória.
+
+Fonte:
+- https://globalcio.com/news/16062/
+
+Embora a manchete possa ser exagerada, ela reflete o aumento extremo da demanda por memória voltada para IA.
+
+---
+
+## 3. Samsung e SK hynix confirmam escassez causada por IA
+
+Fonte:
+- https://www.tomshardware.com/tech-industry/artificial-intelligence/samsung-and-sk-hynix-warn-ai-driven-memory-shortages-could-last-until-2027-and-beyond-as-hbm-demand-explodes-customers-already-reserving-supply-years-ahead-while-the-wider-dram-market-begins-to-tighten
+
+Pontos importantes da matéria:
+
+- clientes já reservaram capacidade produtiva até 2027;
+- a SK hynix afirmou que a pressão da demanda pode continuar até 2030;
+- Samsung alertou para “significant shortages” no mercado de memória;
+- lucros recordes foram impulsionados principalmente por HBM voltada para IA.
+
+Trecho relevante:
+
+> “significant shortages across memory products are expected to continue through at least 2027.”
+
+---
+
+# Inflação
+
+## IGP-M (FGV)
+
+Período:
+- 11/2025 → 04/2026
+
+Resultado:
+- inflação acumulada: **3,187210%**
+
+Fonte:
+- https://www3.bcb.gov.br/CALCIDADAO/publico/corrigirPorIndice.do?method=corrigirPorIndice
+
+Exemplo:
+
+```text
+R$ 100,00 → R$ 103,19
+```
+
+A inflação foi muito inferior ao aumento observado nas memórias RAM.
+
+---
+
+# Dólar
+
+Cotação:
+
+- 19/11/2025 → R$ 5,33
+- 18/05/2026 → R$ 5,00
+
+Variação:
+- **-6,6%**
+
+Fonte:
+- https://www.bcb.gov.br/conversao
+
+O dólar caiu durante o período analisado, indicando que o câmbio não explica a alta observada.
+
+---
+
+# Estrutura do Mercado DRAM
+
+O mercado global de DRAM é altamente concentrado.
+
+Principais fabricantes:
+
+- Samsung
+- SK hynix
+- Micron
+
+Fonte:
+- https://finance.yahoo.com/markets/stocks/articles/dram-etf-holds-73-just-184509547.html
+
+Isso caracteriza um oligopólio, tornando o mercado extremamente sensível a:
+
+- redução de oferta;
+- priorização de produção;
+- aumento de demanda por IA.
+
+---
+
+# Impostos
+
+Não foram encontradas mudanças tributárias significativas no período analisado que expliquem sozinhas a alta observada.
+
+---
+
+# Conclusão
+
+Os dados sugerem que o aumento no preço das memórias RAM entre novembro de 2025 e maio de 2026 está mais relacionado à reorganização estrutural do mercado de memória causada pela IA do que por inflação ou câmbio.
+
+Os principais indícios são:
+
+- inflação baixa (~3,2%);
+- dólar em queda (~-6,6%);
+- aumento abrupto e persistente no preço das RAMs;
+- escassez confirmada pelas próprias fabricantes;
+- crescimento explosivo da demanda por HBM e infraestrutura de IA;
+- mercado altamente concentrado entre Samsung, SK hynix e Micron.
+
+A hipótese mais plausível é que a demanda por memória voltada para IA reduziu a disponibilidade relativa de memória consumer, pressionando os preços globalmente.
