@@ -1,4 +1,4 @@
-<img width="1508" height="552" alt="image" src="https://github.com/user-attachments/assets/a13b1fd0-2d90-46ea-bb0b-be01975c5409" /># O aumento no preço das memórias RAM entre 2025 e 2026 foi causado pela demanda de IA?
+# O aumento no preço das memórias RAM entre 2025 e 2026 foi causado pela demanda de IA?
 
 ## UC Análise de Dados e Big Data
 
