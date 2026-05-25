@@ -1,4 +1,4 @@
-# O aumento no preço das memórias RAM entre 2025 e 2026 foi causado pela demanda de IA?
+<img width="1508" height="552" alt="image" src="https://github.com/user-attachments/assets/a13b1fd0-2d90-46ea-bb0b-be01975c5409" /># O aumento no preço das memórias RAM entre 2025 e 2026 foi causado pela demanda de IA?
 
 ## UC Análise de Dados e Big Data
 
@@ -113,27 +113,9 @@ Após os filtros:
 
 ## DDR4
 
-Preço médio inicial:
+<img width="1655" height="552" alt="image" src="https://github.com/user-attachments/assets/de6490cd-65a4-4143-b1d0-f520e68ba891" />
 
-```text
-R$ 581,68
-```
-
-Preço médio final:
-
-```text
-R$ 1081,05
-```
-
-Variação:
-
-```text
-+85,9%
-```
-
-<img width="1649" height="552" alt="image" src="https://github.com/user-attachments/assets/e59a2809-da98-43fa-adcb-bec8f873f98d" />
-
-A análise mostra que o aumento acelera fortemente entre dezembro de 2025 e janeiro de 2026, seguido por estabilização em um novo patamar de preços.
+A análise mostra que o aumento acelera fortemente entre dezembro de 2025 e janeiro de 2026, seguido por estabilização em um novo patamar de preços, mas com tendencia a aumentar.
 
 ---
 
@@ -141,13 +123,9 @@ A análise mostra que o aumento acelera fortemente entre dezembro de 2025 e jane
 
 As memórias DDR5 apresentaram comportamento ainda mais agressivo.
 
-Diversos modelos ultrapassaram:
+<img width="1508" height="552" alt="image" src="https://github.com/user-attachments/assets/cb794642-1b03-4600-adc5-892d8ef39caf" />
 
-```text
-R$ 2.000 ~ R$ 3.000
-```
-
-<img width="1508" height="552" alt="image" src="https://github.com/user-attachments/assets/ca639b91-59c0-404c-8eb2-f7d2a7c04a4d" />
+A análise mostra que o crescimento muito maior, com aumento percentual de 235% no pico, mas com estabilização e tendencia a diminuir.
 
 ---
 
