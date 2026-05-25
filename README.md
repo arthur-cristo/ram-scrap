@@ -1,157 +1,153 @@
 # O aumento no preço das memórias RAM entre 2025 e 2026 foi causado pela demanda de IA?
 
-## UC Análise de Dados e Big Data  
-UNIFACS — 2026.1  
+## UC Análise de Dados e Big Data
 
-**Aluno:** Arthur Cristo e Silva  
-**RA:** 1272323659  
+UNIFACS — 2026.1
+
+**Aluno:** Arthur Cristo e Silva
+**RA:** 1272323659
 
 ---
 
 # Objetivo do Estudo
 
-O objetivo deste projeto é investigar possíveis causas para o aumento expressivo no preço das memórias RAM no mercado brasileiro entre novembro de 2025 e maio de 2026, analisando fatores econômicos, estruturais e tecnológicos relacionados ao crescimento da Inteligência Artificial.
+Este projeto investiga possíveis causas para o aumento expressivo no preço das memórias RAM entre novembro de 2025 e maio de 2026, analisando fatores econômicos, estruturais e tecnológicos relacionados ao crescimento da Inteligência Artificial (IA).
 
 ---
 
 # Base de Dados
 
-Os dados utilizados neste estudo foram coletados através de um sistema de **web scraping desenvolvido em Python**.
+Os dados foram coletados por meio de um sistema de **web scraping em Python** desenvolvido especificamente para o projeto.
 
-A coleta foi realizada no site:
+Fonte utilizada:
 
-- https://meupc.net/
+* [MeuPC.net](https://meupc.net?utm_source=chatgpt.com)
 
-O MeuPC.net reúne preços dos principais varejistas de hardware e peças de informática do Brasil, permitindo acompanhar a variação de preços no varejo digital brasileiro.
+O site reúne preços de diversos varejistas brasileiros de hardware, permitindo acompanhar a evolução do mercado nacional de memórias RAM.
 
 ---
 
 # Período Analisado
 
-Os dados analisados compreendem o período:
-
-- **19/11/2025 → 18/05/2026**
+* **21/11/2025 → 20/05/2026**
 
 ---
 
 # Recorte do Estudo
-O estudo considerou apenas memórias RAM DDR4 3200MHz 16GB vendidas no varejo digital nacional.
-Embora as memórias **DDR5** tenham apresentado aumentos ainda maiores durante o período analisado, este estudo foi realizado utilizando principalmente memórias **DDR4**.
 
-Motivo da escolha:
+O estudo analisou:
 
-- DDR4 ainda está presente na maior parte dos computadores brasileiros;
-- maior volume de dados disponíveis;
-- maior representatividade no varejo consumer nacional.
+* memórias DDR4 3200MHz;
+* capacidade total de 16GB;
+* produtos vendidos no varejo digital brasileiro.
+
+Também foi realizada uma análise complementar com memórias **DDR5**, que apresentaram aumentos ainda mais agressivos durante o período.
+
+A escolha da DDR4 ocorreu por:
+
+* maior presença no mercado brasileiro;
+* maior volume de dados disponíveis;
+* maior representatividade no segmento consumer.
 
 ---
 
-# Tratamento dos Dados
+# Metodologia
 
-Durante o processo de análise foram realizadas as seguintes etapas:
+## Coleta de Dados
 
-## Coleta
-- Web scraping automatizado em Python para coleta dos preços;
-- Armazenamento histórico em CSV;
-- Registro dos 200 modelos mais populares encontrados no varejo digital nacional.
+* web scraping automatizado em Python;
+* coleta histórica diária de preços;
+* armazenamento em CSV;
+* monitoramento dos modelos mais populares do varejo nacional.
 
-## Limpeza
-- Conversão de preços para formato numérico;
-- Padronização de datas;
-- Tratamento de valores ausentes;
-- Organização temporal da base;
-- Remoção de outliers com preços acima de 2x ou abaixo de 0.5x da média.
+## Tratamento dos Dados
+
+Foram realizadas:
+
+* conversão de preços para formato numérico;
+* padronização de datas;
+* tratamento de valores ausentes;
+* organização temporal;
+* remoção de outliers.
 
 Os outliers removidos incluíam:
-- anúncios incorretos;
-- memórias piratas;
-- modelos premium/exclusivos.
 
-Após o processo de limpeza, 55 modelos foram mantidos para análise.
+* anúncios incorretos;
+* modelos premium/extremos;
+* memórias com preços incompatíveis com o mercado.
 
-A quantidade final foi considerada suficiente devido ao recorte extremamente específico do estudo:
+Após os filtros:
 
-- memórias RAM DDR4;
-- 3200MHz;
-- 16GB;
-- vendidas no varejo digital nacional.
-
-### Estrutura do Arquivo CSV
-
-A base de dados bruta e tratada foi estruturada a partir das seguintes colunas (features):
-
-| Coluna | Tipo de Dado | Descrição |
-| --- | --- | --- |
-| **`index`** | Inteiro | Identificador único da linha no dataset. |
-| **`nome`** | Texto (String) | Nome completo e modelo do módulo de memória RAM. |
-| **`url`** | Texto (String) | Link direto da página do produto no MeuPC.net. |
-| **`preco`** | Numérico (Float) | Preço de tabela/parcelado do produto no varejo. |
-| **`preco_pix`** | Numérico (Float) | Preço promocional para pagamento à vista via PIX. |
-| **`preco_por_gb`** | Numérico (Float) | Métrica calculada ($\text{Preço} \div \text{Capacidade Total}$). |
-| **`modulos`** | Inteiro | Quantidade de pentes inclusos no anúncio (ex: 1x, 2x). |
-| **`capacidade`** | Inteiro | Capacidade de armazenamento em GB (filtrado em 16GB). |
-| **`hash`** | Texto (String) | Identificador alfanumérico único para controle de integridade do anúncio. |
-| **`datas`** | Data (`YYYY-MM-DD`) | Registro temporal exato da captura do preço. |
-
-| index | nome | url | preco | preco_pix | preco_por_gb | modulos | capacidade | hash | 2025-11-19 | 2025-11-20 | 2025-11-21 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **1** | Kingston Fury Beast (Preto) | [Acessar](https://meupc.net/peca/64gcGS/memoria-kingston-fury-beast-kf432c16bbk216) | 935.00 | 935.00 | 58.44 | 2x8 GB | 16 | 64gcGS | — | — | 446.65 |
-| **2** | Rise Mode Diamond Series (Branco) | [Acessar](https://meupc.net/peca/Yzs6v2/memoria-rise-mode-diamond-series-rm-d4-16g-3200dw) | 999.90 | 849.99 | 53.12 | 1x16 GB | 16 | Yzs6v2 | — | — | — |
-| **3** | Rise Mode Z (Preto) | [Acessar](https://meupc.net/peca/bk29mL/memoria-rise-mode-z-rmd416g3200z) | 1066.61 | 1066.61 | 66.66 | 1x16 GB | 16 | bk29mL | — | 477.99 | 477.99 |
-| **4** | Kingston Fury Beast (Preto) | [Acessar](https://meupc.net/peca/mng99J/memoria-kingston-fury-beast-kf432c16bb16) | 923.00 | 923.00 | 57.69 | 1x16 GB | 16 | mng99J | 499.99 | 499.99 | 470.00 |
-| **5** | Husky Impulse (Preto) | [Acessar](https://meupc.net/peca/WwFPxI/memoria-husky-impulse-hrm001163222pt) | 823.40 | 699.90 | 43.74 | 1x16 GB | 16 | WwFPxI | — | — | — |
----
-
-## Agrupamentos
-Foram realizados agrupamentos temporais para facilitar a análise da tendência de preços:
-
-- agrupamento por mês;
-- cálculo da média do primeiro mês analisado;
-- cálculo da média do último mês analisado;
-- comparação percentual entre períodos.
+* **DDR4:** 38 modelos válidos;
+* **DDR5:** 19 modelos válidos.
 
 ---
 
-# Técnicas de Análise
+# Estrutura da Base de Dados
 
-As seguintes técnicas foram utilizadas:
-
-- análise temporal;
-- comparação percentual;
-- média de preços;
-- visualização gráfica;
-- comparação contextual com indicadores econômicos;
-- análise qualitativa baseada em notícias do setor.
+| Coluna         | Descrição                          |
+| -------------- | ---------------------------------- |
+| `nome`         | Modelo da memória RAM              |
+| `preco`        | Preço atual                        |
+| `preco_pix`    | Preço à vista                      |
+| `preco_por_gb` | Relação preço/capacidade           |
+| `modulos`      | Quantidade de módulos              |
+| `capacidade`   | Capacidade total                   |
+| `popularidade` | Indicador de relevância do anúncio |
+| `datas`        | Histórico temporal dos preços      |
 
 ---
 
-# Resultado Observado
+# Técnicas Utilizadas
 
-Durante o primeiro mês analisado:
+* análise temporal;
+* médias móveis;
+* comparação percentual;
+* visualização gráfica;
+* agrupamento mensal;
+* análise contextual com notícias e indicadores econômicos.
+
+---
+
+# Resultados Observados
+
+## DDR4
+
+Preço médio inicial:
 
 ```text
-Preço médio: R$ 581,68
+R$ 581,68
 ```
 
-Durante o último mês analisado:
+Preço médio final:
 
 ```text
-Preço médio: R$ 1081,05
+R$ 1081,05
 ```
 
-Variação percentual: **85,9%**
+Variação:
+
+```text
++85,9%
+```
+
+<img width="1649" height="552" alt="image" src="https://github.com/user-attachments/assets/e59a2809-da98-43fa-adcb-bec8f873f98d" />
+
+A análise mostra que o aumento acelera fortemente entre dezembro de 2025 e janeiro de 2026, seguido por estabilização em um novo patamar de preços.
 
 ---
 
-# Comportamento do Gráfico
+## DDR5
 
-A análise temporal mostra que:
+As memórias DDR5 apresentaram comportamento ainda mais agressivo.
 
-- o aumento ocorre rapidamente entre dezembro e janeiro;
-- após a forte alta, os preços entram em um novo patamar;
-- posteriormente, os valores passam a apresentar relativa estabilização.
+Diversos modelos ultrapassaram:
 
-Isso sugere uma possível mudança estrutural do mercado, e não apenas uma oscilação temporária de curto prazo.
+```text
+R$ 2.000 ~ R$ 3.000
+```
+
+<img width="1508" height="552" alt="image" src="https://github.com/user-attachments/assets/ca639b91-59c0-404c-8eb2-f7d2a7c04a4d" />
 
 ---
 
@@ -160,13 +156,18 @@ Isso sugere uma possível mudança estrutural do mercado, e não apenas uma osci
 ## Inflação (IGP-M)
 
 Período:
-- 11/2025 → 04/2026
 
-Resultado:
-- inflação acumulada de aproximadamente **3,19%**
+* 11/2025 → 04/2026
+
+Resultado acumulado:
+
+```text
+≈ 3,19%
+```
 
 Fonte:
-- https://www3.bcb.gov.br/CALCIDADAO/publico/corrigirPorIndice.do?method=corrigirPorIndice
+
+* [Banco Central do Brasil - Calculadora do Cidadão](https://www3.bcb.gov.br/CALCIDADAO/publico/corrigirPorIndice.do?method=corrigirPorIndice)
 
 ---
 
@@ -174,82 +175,156 @@ Fonte:
 
 Cotação:
 
-- 19/11/2025 → R$ 5,33
-- 18/05/2026 → R$ 5,00
+* 21/11/2025 → R$ 5,39
+* 20/05/2026 → R$ 5,00
 
 Variação:
-- aproximadamente **-6,6%**
+
+```text
+≈ -7,23%
+```
 
 Fonte:
-- https://www.bcb.gov.br/conversao
+
+* [Banco Central do Brasil - Conversão de Moedas](https://www.bcb.gov.br/conversao)
+
+Os dados indicam que nem inflação nem dólar explicam a magnitude da alta observada.
 
 ---
-
-# Notícias Relacionadas
 
 # Estrutura do Mercado
 
-Cerca de 73% do mercado global de DRAM é concentrado entre:
+O mercado global de DRAM é altamente concentrado.
 
-- Samsung
-- SK hynix
-- Micron
+Aproximadamente 73% da produção mundial pertence a:
+
+* Samsung;
+* SK hynix;
+* Micron.
 
 Fonte:
-- https://finance.yahoo.com/markets/stocks/articles/dram-etf-holds-73-just-184509547.html
+
+* [Yahoo Finance - DRAM Market Share](https://finance.yahoo.com/markets/stocks/articles/dram-etf-holds-73-just-184509547.html)
 
 ---
 
-## Micron deixa parte do mercado doméstico
+# Eventos Relevantes do Período
 
-Em 3 de dezembro de 2025, a Micron anunciou a saída da marca Crucial do mercado doméstico.
+## Micron reduz presença no mercado doméstico
+
+Em dezembro de 2025, a Micron anunciou mudanças envolvendo a marca Crucial no mercado consumidor.
 
 Fonte:
-- https://investors.micron.com/news-releases/news-release-details/micron-announces-exit-crucial-consumer-business
+
+* [Micron Investor Relations](https://investors.micron.com/news-releases/news-release-details/micron-announces-exit-crucial-consumer-business)
 
 ---
 
-## Crescimento da demanda de memória para IA
+## Crescimento da demanda de IA
 
-Em 22 de dezembro de 2025, surgiram notícias afirmando que a OpenAI teria reservado até 40% do mercado de memória.
+Notícias do período indicavam aumento extremo da demanda por memória para IA e servidores.
+
+Uma das reportagens afirmava que a OpenAI teria reservado grande parte da produção futura de memória.
 
 Fonte:
-- https://globalcio.com/news/16062/
+
+* [Global CIO - OpenAI reservando mercado de memória](https://globalcio.com/news/16062/)
 
 ---
 
-## Samsung e SK hynix alertam para escassez
+## Alertas de escassez
+
+Samsung e SK hynix alertaram para possíveis shortages prolongados de memória devido ao crescimento da IA e da demanda por HBM (High Bandwidth Memory).
 
 Fonte:
-- https://www.tomshardware.com/tech-industry/artificial-intelligence/samsung-and-sk-hynix-warn-ai-driven-memory-shortages-could-last-until-2027-and-beyond-as-hbm-demand-explodes-customers-already-reserving-supply-years-ahead-while-the-wider-dram-market-begins-to-tighten
+
+* [Tom's Hardware - AI-driven memory shortages](https://www.tomshardware.com/tech-industry/artificial-intelligence/samsung-and-sk-hynix-warn-ai-driven-memory-shortages-could-last-until-2027-and-beyond-as-hbm-demand-explodes-customers-already-reserving-supply-years-ahead-while-the-wider-dram-market-begins-to-tighten)
 
 Principais pontos:
-- aumento da demanda por HBM voltada para IA;
-- > “Samsung’s memory chief Kim Jaejune warned that “significant shortages” across memory products are expected to continue through at least 2027”
-- > “SK Group chairman says memory chip shortage will last until 2030”
+
+* aumento da demanda por HBM para IA;
+* reserva antecipada de produção;
+* previsão de escassez até 2027 ou além.
 
 ---
 
-# Interpretação Inicial dos Resultados
+# Comparação Internacional (Estados Unidos)
 
-Os dados analisados sugerem que:
+Para validar se o fenômeno também ocorreu fora do Brasil, foram analisados históricos de preços no mercado norte-americano utilizando o:
 
-- inflação e dólar não explicam a magnitude da alta observada;
-- houve forte pressão de demanda relacionada à IA;
-- fabricantes passaram a priorizar memória para infraestrutura de IA;
-- o mercado entrou em um novo patamar de preços após dezembro de 2025.
+* [PCPartPicker](https://pcpartpicker.com)
 
-O estudo não busca provar causalidade absoluta, mas identificar evidências e padrões consistentes com a hipótese analisada.
+## Caso DDR5
+
+### Patriot Viper Elite 5 DDR5-6000 16GB
+
+Preço em 01/11/2025:
+
+```text
+US$ 69,99
+```
+
+Preço em 24/05/2026:
+
+```text
+US$ 199,99
+```
+
+Variação aproximada:
+
+```text
++185,7%
+```
+<img width="927" height="303" alt="image" src="https://github.com/user-attachments/assets/257624ae-5a2a-4238-b116-4479dbcb79df" />
+
+O gráfico mostra comportamento semelhante ao observado no Brasil:
+
+* início da alta em novembro;
+* explosão de preços em dezembro;
+* estabilização em patamar elevado.
+
+* Fonte: [PcPartPicker](https://pcpartpicker.com/product/G79nTW/patriot-viper-elite-5-16-gb-1-x-16-gb-ddr5-6000-cl30-memory-veb516g6030w?history_days=365)
 
 ---
 
-# Prévia da Visualização
+## Caso DDR4
 
-<img width="1509" height="552" alt="image" src="https://github.com/user-attachments/assets/34b32b71-baf5-4f2c-8c78-f92be2aad883" />
+### Kingston Fury Beast DDR4-3200 16GB
 
-O gráfico apresenta:
+Preço em 01/11/2025:
 
-- evolução temporal dos preços;
-- destaque visual para o primeiro e último mês;
-- linhas guia relacionadas às principais notícias do período;
-- média dos preços no início e no final da análise.
+```text
+US$ 100,18
+```
+
+Preço em 20/05/2026:
+
+```text
+US$ 214,26
+```
+
+Variação aproximada:
+
+```text
++113,87%
+```
+<img width="929" height="309" alt="image" src="https://github.com/user-attachments/assets/c878dff8-cecd-4601-9835-2253f55d8e30" />
+
+Assim como no Brasil, o DDR4 apresentou crescimento mais lento e menos explosivo que o DDR5, mas ainda assim extremamente elevado.
+* Fonte: [PcPartPicker](https://pcpartpicker.com/product/6YfnTW/kingston-fury-beast-16-gb-2-x-8-gb-ddr4-3200-cl16-memory-kf432c16bbk216?history_days=365)
+---
+
+# Conclusão
+
+Os dados analisados sugerem forte correlação entre o crescimento da demanda por infraestrutura de IA e o aumento global no preço das memórias RAM.
+
+Os principais indícios encontrados foram:
+
+* inflação baixa no período;
+* queda do dólar frente ao real;
+* aumento simultâneo em diferentes países;
+* concentração extrema da produção mundial;
+* crescimento acelerado da demanda por HBM e IA;
+* alertas públicos de escassez emitidos pelos fabricantes.
+
+O estudo não busca provar causalidade absoluta, mas apresenta evidências consistentes de que a expansão da Inteligência Artificial contribuiu significativamente para a mudança estrutural observada no mercado de memórias entre 2025 e 2026.
