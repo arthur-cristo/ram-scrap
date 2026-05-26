@@ -306,3 +306,5 @@ Os principais indícios encontrados foram:
 * alertas públicos de escassez emitidos pelos fabricantes.
 
 O estudo não busca provar causalidade absoluta, mas apresenta evidências consistentes de que a expansão da Inteligência Artificial contribuiu significativamente para a mudança estrutural observada no mercado de memórias entre 2025 e 2026.
+
+"Random access memory (RAM) DDR3" (https://skfb.ly/6zY8B) by CommunicationNode is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
